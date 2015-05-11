@@ -29,23 +29,25 @@ CSDLController::CSDLController(const char* title, int p_screenW, int p_screenH, 
 	SDL_RenderSetLogicalSize(renderer, screenW, screenH);
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
 
-	spriteSheet = IMG_LoadTexture(renderer, "sprites/spriteSheet.png");
-
 	mainEvent = new SDL_Event();
 }
 
 void CSDLController::start() {
+	deltaTime = (SDL_GetTicks() - timeLastFrame) / 1000.0f;
 	SDL_RenderClear(renderer);
 }
 
 void CSDLController::end() {
+	timeLastFrame = SDL_GetTicks();
 	SDL_RenderPresent(renderer);
 }
 
-SDL_Texture* CSDLController::loadSheet(const char* file) {
-	SDL_DestroyTexture(spriteSheet);
+void CSDLController::loadSheet(const char* file) {
+	if (spriteSheet)
+		SDL_DestroyTexture(spriteSheet);
 	spriteSheet = IMG_LoadTexture(renderer, file);
-	return spriteSheet;
+	if (spriteSheet == NULL)
+		printf("Cannot load spritesheet!\n");
 }
 
 CSDLController::~CSDLController() {

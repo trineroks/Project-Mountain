@@ -9,7 +9,7 @@ public:
 	void changeState(CGameState* state);
 	void pushState(CGameState* state);
 	void popState();
-	void gameTick();
+	void gameTick(float deltaTime);
 
 	void quit() { exit = true; }
 	bool getExitState() { return exit; }

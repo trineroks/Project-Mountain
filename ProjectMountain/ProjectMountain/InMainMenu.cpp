@@ -3,7 +3,11 @@
 #include "StateMachine.h"
 
 
-CInMainMenu::CInMainMenu() {
+CInMainMenu::CInMainMenu(CPainter *ppainter, CSpriteBank *bank) {
+	painter = ppainter;
+	camera = painter->getCamera();
+	spriteBank = bank;
+	frame = 0;
 }
 
 
@@ -26,11 +30,13 @@ void CInMainMenu::handleEvents() {
 
 }
 
-void CInMainMenu::update() {
-	printf("In Main Menu\n");
-	CStateMachine::getInstance().pushState(new CInGame());
+void CInMainMenu::update(float deltaTime) {
+	draw();
 }
 
 void CInMainMenu::draw() {
-
+	frame++;
+	if (frame >= 4)
+		frame = 0;
+	painter->paint(spriteBank->charSprites.P1_Right[frame], 10, 10);
 }

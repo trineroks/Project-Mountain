@@ -17,17 +17,21 @@ void CStateMachine::changeState(CGameState* state) {
 }
 
 void CStateMachine::popState() {
-	if (!stateStack.empty())
-		stateStack.pop_back();
+	if (!stateStack.empty()) {
+		CGameState *current = stateStack.back();
+		delete current;
+		current = NULL;
+	}
+	stateStack.pop_back();
 }
 
 void CStateMachine::pushState(CGameState* state) {
 	stateStack.push_back(state);
 }
 
-void CStateMachine::gameTick() {
+void CStateMachine::gameTick(float deltaTime) {
 	if (!stateStack.empty())
-		stateStack.back()->update();
+		stateStack.back()->update(deltaTime);
 	else
 		printf("The state machine is empty!\n");
 }

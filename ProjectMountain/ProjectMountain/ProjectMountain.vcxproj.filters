@@ -21,9 +21,6 @@
     <ClInclude Include="SpriteBank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Painter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -63,9 +60,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpriteBank.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Painter.cpp">

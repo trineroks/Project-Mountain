@@ -24,7 +24,15 @@ public:
 	void start();
 	void end();
 
-	SDL_Texture* loadSheet(const char* file);
+	float getDeltaTime() {
+		return deltaTime;
+	}
+
+	void loadSheet(const char* file);
+
+	SDL_Texture* getLoadedSheet() {
+		return spriteSheet;
+	}
 
 private:
 	int screenW;
@@ -33,5 +41,8 @@ private:
 	SDL_Renderer* renderer;
 	SDL_Event* mainEvent;
 	SDL_Window* window;
+
+	Uint32 timeLastFrame;
+	float deltaTime; //How many ms has passed since last frame. Use this for movement -> x pixels per second.
 };
 

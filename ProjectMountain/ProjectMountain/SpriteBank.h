@@ -1,6 +1,5 @@
 #pragma once
 #include "stdafx.h"
-#include "SpriteData.h"
 
 struct CharacterSprites {
 	SDL_Rect P1_Idle[4];

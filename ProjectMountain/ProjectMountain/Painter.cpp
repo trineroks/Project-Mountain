@@ -1,15 +1,16 @@
 #include "stdafx.h"
 #include "Painter.h"
 
-
-CPainter::CPainter(SDL_Renderer  &renderer, SDL_Texture &image, CCamera &camera) {
+CPainter::CPainter() {
 	this->renderer = NULL;
 	this->image = NULL;
 	this->camera = NULL;
+}
 
-	this->renderer = &renderer;
-	this->image = &image;
-	this->camera = &camera;
+CPainter::CPainter(SDL_Renderer  *renderer, SDL_Texture *image, CCamera *camera) {
+	this->renderer = renderer;
+	this->image = image;
+	this->camera = camera;
 }
 
 void CPainter::paint(SDL_Rect sprite, int x, int y) {

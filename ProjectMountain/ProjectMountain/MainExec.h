@@ -3,6 +3,9 @@
 #include "SDLController.h"
 #include "StateMachine.h"
 #include "GameState.h"
+#include "Painter.h"
+#include "Camera.h"
+#include "SpriteBank.h"
 
 class CMainExec
 {
@@ -14,6 +17,8 @@ public:
 
 private:
 	CSDLController *csdlController;
-	vector<CGameState*> stateStack;
+	CPainter *painter;
+	CSpriteBank *spriteBank;
+	CCamera *camera;
 };
 

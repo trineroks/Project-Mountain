@@ -1,10 +1,13 @@
 #pragma once
 #include "GameState.h"
+#include "Painter.h"
+#include "SpriteBank.h"
+#include "Camera.h"
 
 class CInGame : public CGameState
 {
 public:
-	CInGame();
+	CInGame(CPainter *ppainter, CSpriteBank *bank);
 	~CInGame();
 
 	void cleanUp();
@@ -12,7 +15,13 @@ public:
 	void resume();
 
 	void handleEvents();
-	void update();
+	void update(float deltaTime);
 	void draw();
+private:
+	int frame;
+	float position;
+	CPainter *painter;
+	CSpriteBank *spriteBank;
+	CCamera *camera;
 };
 

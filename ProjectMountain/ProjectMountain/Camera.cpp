@@ -2,6 +2,8 @@
 #include "Camera.h"
 
 CCamera::CCamera() {
+	cameraX = 0;
+	cameraY = 0;
 }
 
 CCamera::CCamera(int camX, int camY) {
